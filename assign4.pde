@@ -31,7 +31,9 @@ boolean leftState = false;
 boolean rightState = false;
 boolean downState = false;
 int playerHealth = 2;
+final int HEART_SPACEING = 70;
 final int PLAYER_MAX_HEALTH = 5;
+int heart =2; 
 int playerMoveDirection = 0;
 int playerMoveTimer = 0;
 int playerMoveDuration = 15;
@@ -101,6 +103,11 @@ void setup() {
 	// Initialize soidiers and their position
 
 	// Initialize cabbages and their position
+    cabbageX= new float [4];
+    cabbageY= new float [4];
+    cabbageX = floor(random(8))*SOIL_SIZE;
+    cabbageY = floor(random(0+i,4))*SOIL_SIZE;
+    image(cabbage,cabbageX,cabbageY);
 
 }
 
@@ -164,6 +171,10 @@ void draw() {
 		}
 
 		// Cabbages
+    /*cabbageX = floor(random(0,8)*SOIL_SIZE);
+    cabbageY = (random(0,8)*SOIL_SIZE);
+    image(cabbage,cabbageX,cabbageY); */
+    
 		// > Remember to check if playerHealth is smaller than PLAYER_MAX_HEALTH!
 
 		// Groundhog
@@ -310,7 +321,10 @@ void draw() {
 		popMatrix();
 
 		// Health UI
-
+    for(int i =0 ;i<heart ;i++){
+    image(life,10+HEART_SPACEING*i,10);
+    }
+   
 		break;
 
 		case GAME_OVER: // Gameover Screen
