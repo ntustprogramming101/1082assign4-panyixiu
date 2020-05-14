@@ -32,8 +32,7 @@ boolean rightState = false;
 boolean downState = false;
 int playerHealth = 2;
 final int HEART_SPACEING = 70;
-final int PLAYER_MAX_HEALTH = 5;
-int heart =2; 
+final int PLAYER_MAX_HEALTH = 5; 
 int playerMoveDirection = 0;
 int playerMoveTimer = 0;
 int playerMoveDuration = 15;
@@ -82,7 +81,7 @@ void setup() {
 			stones[i][j] = loadImage("img/stones/stone" + i + "/stone" + i + "_" + j + ".png");
 		}
 	}
-
+  
 	// Initialize player
 	playerX = PLAYER_INIT_X;
 	playerY = PLAYER_INIT_Y;
@@ -105,9 +104,9 @@ void setup() {
 	// Initialize cabbages and their position
     cabbageX= new float [4];
     cabbageY= new float [4];
-    cabbageX = floor(random(8))*SOIL_SIZE;
+    /*cabbageX = floor(random(8))*SOIL_SIZE;
     cabbageY = floor(random(0+i,4))*SOIL_SIZE;
-    image(cabbage,cabbageX,cabbageY);
+    image(cabbage,cabbageX,cabbageY);*/
 
 }
 
@@ -170,6 +169,10 @@ void draw() {
 			}
 		}
 
+    //stones
+    for(int i = 0; i<8;i++){
+        image(stones[0][4],i*SOIL_SIZE,i*SOIL_SIZE);
+    }
 		// Cabbages
     /*cabbageX = floor(random(0,8)*SOIL_SIZE);
     cabbageY = (random(0,8)*SOIL_SIZE);
@@ -321,7 +324,7 @@ void draw() {
 		popMatrix();
 
 		// Health UI
-    for(int i =0 ;i<heart ;i++){
+    for(int i =0 ;i<playerHealth ;i++){
     image(life,10+HEART_SPACEING*i,10);
     }
    
@@ -373,7 +376,7 @@ void draw() {
 	}
 }
 
-void keyPressed(){
+void keyPressed(){/*
 	if(key==CODED){
 		switch(keyCode){
 			case LEFT:
@@ -391,7 +394,7 @@ void keyPressed(){
 			// Press B to toggle demo mode
 			demoMode = !demoMode;
 		}
-	}
+	}*/
 }
 
 void keyReleased(){
